@@ -1,4 +1,4 @@
-package com.ninjaCorporation.Changeset;
+package com.ninjacorporation.changeset.main;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
