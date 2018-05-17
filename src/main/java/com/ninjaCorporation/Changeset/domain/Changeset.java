@@ -1,5 +1,6 @@
 package com.ninjaCorporation.Changeset.domain;
 
+import com.ninjaCorporation.Changeset.utils.TimeUtils;
 import java.sql.Timestamp;
 import javax.persistence.*;
 
@@ -19,6 +20,14 @@ public class Changeset extends AbstractEntity {
 
     @Column(length = 100000)
     private String data;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
+    public Changeset() {
+        dateCreated = TimeUtils.getCurrentTimestamp();
+    }
 
     public Timestamp getDateCreated() {
         return dateCreated;
@@ -42,5 +51,13 @@ public class Changeset extends AbstractEntity {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
