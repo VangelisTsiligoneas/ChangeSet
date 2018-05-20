@@ -7,15 +7,15 @@ package com.ninjaCorporation.Changeset.exceptions;
 
 /**
  *
- * A business exception
+ * a data Exception 
  */
-public class BusinessException extends RuntimeException{
-
-    public BusinessException(String message) {
+public class DataException extends BusinessException{
+    
+    public DataException(String message) {
         super(message);
     }
 
-    public BusinessException(String message, Throwable cause) {
+    public DataException(String message, Throwable cause) {
         super(message, cause);
     }    
 }

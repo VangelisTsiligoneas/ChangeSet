@@ -4,6 +4,9 @@ import com.ninjaCorporation.Changeset.utils.TimeUtils;
 import java.sql.Timestamp;
 import javax.persistence.*;
 
+/**
+ * {@link Changeset} entity
+ */
 @javax.persistence.Entity
 @Table(name = "Changeset")
 @Access(AccessType.FIELD)
@@ -18,7 +21,7 @@ public class Changeset extends AbstractEntity {
     @Column
     private Timestamp dateModified;
 
-    @Column(length = 100000)
+    @Column(nullable = false, length = 100000)
     private String data;
 
     @ManyToOne

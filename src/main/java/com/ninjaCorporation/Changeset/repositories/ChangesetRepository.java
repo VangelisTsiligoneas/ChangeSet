@@ -9,7 +9,7 @@ import com.ninjaCorporation.Changeset.domain.Changeset;
 
 /**
  *
- * @author Vangelis
+ * {@link ChangesetRepository} repository
  */
 public interface ChangesetRepository extends AbstractRepository<Changeset>{
     

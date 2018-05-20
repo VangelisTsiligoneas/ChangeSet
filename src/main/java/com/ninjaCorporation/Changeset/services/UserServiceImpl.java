@@ -12,10 +12,14 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Vangelis
+ * An implementation of a {@link UserService} service.
  */
 @Service
 public class UserServiceImpl extends AbstractServiceImpl<User> implements UserService {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
+
+    public UserServiceImpl() {
+        super(User.class);
+    }
 }

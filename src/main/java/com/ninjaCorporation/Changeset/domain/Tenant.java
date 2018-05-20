@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
+/**
+ * {@link Tenant} entity
+ */
 @javax.persistence.Entity
 @Table(name = "Tenant")
 @Access(AccessType.FIELD)

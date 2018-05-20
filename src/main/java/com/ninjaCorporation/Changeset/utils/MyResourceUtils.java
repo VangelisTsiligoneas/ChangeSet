@@ -14,24 +14,24 @@ import org.springframework.core.io.ClassPathResource;
 
 /**
  *
- * @author Vangelis
+ * This class contains methods related to getting and transforming resources.
  */
-public class ResourceUtils {
+public class MyResourceUtils {
 
     public static String getContent(String resourcePath) {
         InputStream inputStream = getInputStream(resourcePath);
         return getContent(inputStream);
     }
-    
-    public static String getContent(InputStream inputStream){
+
+    public static String getContent(InputStream inputStream) {
         try {
             return IOUtils.toString(inputStream, StandardCharsets.UTF_8.name());
         } catch (IOException ex) {
             throw new ExternalException("Could not get content from stream.", ex);
         }
     }
-    
-    public static InputStream getInputStream(String resourcePath){
+
+    public static InputStream getInputStream(String resourcePath) {
         try {
             return new ClassPathResource(resourcePath).getInputStream();
         } catch (IOException ex) {

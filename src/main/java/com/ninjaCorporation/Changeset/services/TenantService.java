@@ -9,7 +9,8 @@ import com.ninjaCorporation.Changeset.domain.Tenant;
 
 /**
  *
- * @author Vangelis
+ * This service contains methods that are related with the {@link TenantService}
+ * entity.
  */
 public interface TenantService extends AbstractService<Tenant>{
     

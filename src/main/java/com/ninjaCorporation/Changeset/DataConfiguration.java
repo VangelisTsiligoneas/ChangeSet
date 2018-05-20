@@ -12,7 +12,7 @@ import com.ninjaCorporation.Changeset.domain.User;
 import com.ninjaCorporation.Changeset.services.ChangesetService;
 import com.ninjaCorporation.Changeset.services.TenantService;
 import com.ninjaCorporation.Changeset.services.UserService;
-import com.ninjaCorporation.Changeset.utils.ResourceUtils;
+import com.ninjaCorporation.Changeset.utils.MyResourceUtils;
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 import org.slf4j.Logger;
@@ -22,7 +22,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  *
- * @author Vangelis
+ * This class configures the data at start up
  */
 @Configuration
 public class DataConfiguration {
@@ -58,7 +58,7 @@ public class DataConfiguration {
                 user.setTenant(tenant);
                 user = userService.save(user);
                 Changeset changeset = new Changeset();
-                changeset.setData(ResourceUtils.getContent(Resources.DEMO_DATA));
+                changeset.setData(MyResourceUtils.getContent(Resources.DEMO_DATA));
                 changeset.setUser(user);
                 changeset = changesetService.save(changeset);
             }
@@ -72,7 +72,7 @@ public class DataConfiguration {
                 user.setTenant(tenant);
                 user = userService.save(user);
                 Changeset changeset = new Changeset();
-                changeset.setData(ResourceUtils.getContent(Resources.DEMO_DATA_2));
+                changeset.setData(MyResourceUtils.getContent(Resources.DEMO_DATA_2));
                 changeset.setUser(user);
                 changeset = changesetService.save(changeset);
             }

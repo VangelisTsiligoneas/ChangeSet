@@ -7,13 +7,14 @@ package com.ninjaCorporation.Changeset.exceptions;
 
 /**
  *
- * @author Vangelis
+ * This external exception is thrown when something is wrong with an external
+ * system (Could also be be the file system).
  */
-public class ExternalException extends BusinessException{
-    
+public class ExternalException extends BusinessException {
+
     public ExternalException(String message) {
         super(message);
-    }    
+    }
 
     public ExternalException(String message, Throwable cause) {
         super(message, cause);

@@ -9,7 +9,8 @@ import com.ninjaCorporation.Changeset.domain.User;
 
 /**
  *
- * @author Vangelis
+ * This service contains methods that are related with the {@link UserService}
+ * entity.
  */
 public interface UserService extends AbstractService<User>{
     

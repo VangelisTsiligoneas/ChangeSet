@@ -9,7 +9,7 @@ import com.ninjaCorporation.Changeset.domain.Tenant;
 
 /**
  *
- * @author Vangelis
+ * {@link TenantRepository} repository
  */
 public interface TenantRepository extends AbstractRepository<Tenant>{
     

@@ -7,7 +7,7 @@ package com.ninjaCorporation.Changeset.constants;
 
 /**
  *
- * @author Vangelis
+ * This class contains constants of all the resources
  */
 public class Resources {
     

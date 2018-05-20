@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author Vangelis
+ * This class contains utilities related to time and date.
  */
 public class TimeUtils {
 

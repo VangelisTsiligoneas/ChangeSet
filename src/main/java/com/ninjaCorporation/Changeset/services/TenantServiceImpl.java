@@ -12,9 +12,14 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Vangelis
+ * An implementation of a {@link TenantService} service.
  */
 @Service
-public class TenantServiceImpl extends AbstractServiceImpl<Tenant> implements TenantService{
+public class TenantServiceImpl extends AbstractServiceImpl<Tenant> implements TenantService {
+
     private static final Logger LOG = LoggerFactory.getLogger(TenantServiceImpl.class);
+
+    public TenantServiceImpl() {
+        super(Tenant.class);
+    }
 }

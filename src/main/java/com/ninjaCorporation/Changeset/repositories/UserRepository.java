@@ -9,7 +9,7 @@ import com.ninjaCorporation.Changeset.domain.User;
 
 /**
  *
- * @author Vangelis
+ * {@link UserRepository} repository
  */
 public interface UserRepository extends AbstractRepository<User> {
 

@@ -3,7 +3,9 @@ package com.ninjaCorporation.Changeset.domain;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
-
+/**
+ * {@link User} entity
+ */
 @javax.persistence.Entity
 @Table(name = "User")
 @Access(AccessType.FIELD)

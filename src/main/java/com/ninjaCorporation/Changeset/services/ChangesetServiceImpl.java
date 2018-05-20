@@ -12,9 +12,14 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Vangelis
+ * An implementation of a {@link ChangesetService} service.
  */
 @Service
-public class ChangesetServiceImpl extends AbstractServiceImpl<Changeset> implements ChangesetService{
+public class ChangesetServiceImpl extends AbstractServiceImpl<Changeset> implements ChangesetService {
+
     private static final Logger LOG = LoggerFactory.getLogger(ChangesetServiceImpl.class);
+
+    public ChangesetServiceImpl() {
+        super(Changeset.class);
+    }
 }

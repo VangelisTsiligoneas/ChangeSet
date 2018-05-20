@@ -5,13 +5,11 @@
  */
 package com.ninjaCorporation.Changeset.services;
 
-import com.ninjaCorporation.Changeset.domain.Changeset;
-
 /**
  *
- * This service contains methods that are related with the {@link Changeset}
- * entity.
+ * This service contains methods related to diff reports of changeset data.
  */
-public interface ChangesetService extends AbstractService<Changeset> {
+public interface ChangesetDiffService {
 
+    public String produceDiffReport(long changesetId1, long changesetId2);
 }
