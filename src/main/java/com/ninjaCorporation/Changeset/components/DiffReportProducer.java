@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.ninjaCorporation.Changeset.exceptions.BusinessException;
 import java.io.File;
 import java.io.IOException;
@@ -62,9 +63,9 @@ public class DiffReportProducer {
     @PostConstruct
     private void postConstruct() {
         JsonPopulator nodePopulator = (JsonNode fromJson, ObjectNode objectNode, String status) -> {
-            populateJson(objectNode, fromJson, Arrays.asList(ID, TYPE, VERSION, VERSION));
+            populateJson(objectNode, fromJson, Arrays.asList(ID, TYPE, VERSION, VERSION, METADATA));
             objectNode.put(STATUS, status);
-            //            objectNode.get(METADATA).elements().forEachRemaining(it -> ((ObjectNode) it).put(STATUS, status));
+            objectNode.get(METADATA).elements().forEachRemaining(it -> ((ObjectNode) it).put(STATUS, status));
         };
 
         JsonPopulator metadataPopulator = (JsonNode fromJson, ObjectNode objectNode, String status) -> {
@@ -80,8 +81,7 @@ public class DiffReportProducer {
             JsonNode json1 = mapper.readTree(data1);
             JsonNode json2 = mapper.readTree(data2);
             ObjectNode createdObjectNode = mapper.createObjectNode();
-//        JsonNode idProperty1 = json1.get(ID);
-//        JsonNode idProperty2 = json2.get(ID);
+
             populateJson(createdObjectNode, json1, Arrays.asList(ID, TYPE, VERSION));
             createdObjectNode.put(STATUS, Status.UNMODIFIED);
             createdObjectNode.put(PREVIOUS_VERSION, json1.get(VERSION).get(NAME));
@@ -100,12 +100,9 @@ public class DiffReportProducer {
             Iterator<JsonNode> nodesElements1 = nodes1.elements();
             Iterator<JsonNode> nodesElements2 = reference2.get(NODES).elements();
 
-            ArrayNode diffNodes12 = findDiffsFromNodes(ImmutableList.copyOf(nodesElements1), ImmutableList.copyOf(nodesElements2));
-//            ArrayNode diffNodes21 = findDiffsFromNodes(nodesElements2, nodesElements1, Status.CREATED);
+            ArrayNode diffNodes = findDiffsFromNodes(ImmutableList.copyOf(nodesElements1), ImmutableList.copyOf(nodesElements2));
             ArrayNode createdNodes = createdReferenceNode.putArray(NODES);
-            createdNodes.addAll(diffNodes12);
-//            createdNodes.add(diffNodes21);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("C://debug/result.json"), createdObjectNode);
+            createdNodes.addAll(diffNodes);
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(createdObjectNode);
         } catch (IOException ex) {
             throw new BusinessException("Could not produce diff report.", ex);
@@ -116,10 +113,8 @@ public class DiffReportProducer {
         List<JsonNode> commonNodes1 = new ArrayList<>();
         List<JsonNode> commonNodes2 = new ArrayList<>();
         ArrayNode diffNodes = createNonExistedNodes(nodesElements1, nodesElements2, commonNodes1, Status.DELETED);
-
         diffNodes.addAll(createNonExistedNodes(nodesElements2, nodesElements1, commonNodes2, Status.CREATED));
-        diffNodes.addAll(findDiffsFromMetadata(commonNodes1, commonNodes2));
-        //for commonNodes, populate them as modified
+        diffNodes.addAll(findDiffsFromMetadata(commonNodes1, commonNodes2));// populate nodes that are common on both objects        
         return diffNodes;
     }
 
@@ -130,8 +125,8 @@ public class DiffReportProducer {
             List<JsonNode> commonMetadatas2 = new ArrayList<>();
             ObjectNode createdNode = mapper.createObjectNode();
             ArrayNode createdMetadatas = mapper.createArrayNode();
-            nodeDiffProducer.populateJsonNode(node1, createdNode, Status.MODIFIED);
-            createdNode.put(METADATA, createdMetadatas);
+            populateJsonNodeWithNoMetadata(node1, createdNode, Status.MODIFIED);
+//            createdNode.put(METADATA, createdMetadatas);
             createdNodes.add(createdNode);
 
             long idValue = node1.get(ID).asLong();
@@ -143,8 +138,17 @@ public class DiffReportProducer {
             createdMetadatas = createNotExistedMetadata(metadatas1, metadatas2, commonMetadatas1, Status.DELETED);
             createdMetadatas.addAll(createNotExistedMetadata(metadatas2, metadatas1, commonMetadatas2, Status.CREATED));
             createdMetadatas.addAll(createCommonMetadatas(commonMetadatas1, commonMetadatas2));
+            
+            if(createdMetadatas.elements().hasNext()){//if there are metadatas only then add metadata property
+                createdNode.put(METADATA, createdMetadatas);
+            }
         });
         return createdNodes;
+    }
+
+    private void populateJsonNodeWithNoMetadata(JsonNode fromJson, ObjectNode objectNode, String status) {
+        populateJson(objectNode, fromJson, Arrays.asList(ID, TYPE, VERSION, VERSION));
+        objectNode.put(STATUS, status);
     }
 
     private ArrayNode createNotExistedMetadata(List<JsonNode> fromMetadatas, List<JsonNode> toMetadatas, List<JsonNode> commonMetadatas, String status) {
@@ -164,7 +168,6 @@ public class DiffReportProducer {
                 status = Status.UNMODIFIED;
             }
             metadataDiffProducer.populateJsonNode(metadata1, createdMetadata, status);
-
         });
         return createdMetadatas;
     }

@@ -20,12 +20,12 @@ import java.util.function.Predicate;
  * This class procuces diff reports between two jsons
  */
 public class JsonDiffProducer {
-    
+
     private final ObjectMapper mapper;
 
     private final JsonPopulator populator;
 
-    private final String childrenNodeName;
+    private final String childrenNodeName;// the name of the property that has children of null if this object has no children
 
     public JsonDiffProducer(ObjectMapper mapper, JsonPopulator populator, String childrenNodeName) {
         this.mapper = mapper;
@@ -34,7 +34,7 @@ public class JsonDiffProducer {
     }
 
     /**
-     * This method created a json array with the object nodes that are deleted
+     * This method creates a json array with the object nodes that are deleted
      * of created
      *
      * @param fromNodes the list of nodes from the first json
@@ -68,7 +68,10 @@ public class JsonDiffProducer {
         ObjectNode createdNode = mapper.createObjectNode();
         createdNodes.add(createdNode);
         populateJsonNode(node, createdNode, status);
-        populateChildren(node, createdNode, status);
+        if (childrenNodeName != null) {//if this object is defined with children.
+            populateChildren(node, createdNode, status);
+        }
+
     }
 
     /**
