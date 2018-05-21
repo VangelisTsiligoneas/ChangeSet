@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ninjaCorporation.Changeset.repositories;
+package com.ninjaCorporation.Changeset.services;
 
 import com.ninjaCorporation.Changeset.domain.User;
 
 /**
  *
- * {@link UserRepository} repository
+ * This service contains methods that are related with the {@link UserService}
+ * entity.
  */
-public interface UserRepository extends AbstractRepository<User> {
-
+public interface UserService extends AbstractService<User>{
+    
 }

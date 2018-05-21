@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
+/**
+ * {@link Tenant} entity
+ */
 @javax.persistence.Entity
 @Table(name = "Tenant")
 @Access(AccessType.FIELD)
@@ -26,6 +29,22 @@ public class Tenant extends AbstractEntity {
 
     public Tenant() {
         uuid = generateUuid();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUuid() {

@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * This class represents an abstraction of an entity
+ */
 @Access(AccessType.FIELD)
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable {

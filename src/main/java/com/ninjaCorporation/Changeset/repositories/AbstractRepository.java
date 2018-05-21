@@ -11,7 +11,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 /**
  *
- * @author Vangelis
+ * An abstraction of an entity repository.
  */
 @NoRepositoryBean
 public interface AbstractRepository<T extends AbstractEntity>  extends JpaRepository<T, Long> {

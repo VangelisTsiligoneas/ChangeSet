@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ninjaCorporation.Changeset.repositories;
+package com.ninjaCorporation.Changeset.services;
 
 import com.ninjaCorporation.Changeset.domain.Tenant;
 
 /**
  *
- * {@link TenantRepository} repository
+ * This service contains methods that are related with the {@link TenantService}
+ * entity.
  */
-public interface TenantRepository extends AbstractRepository<Tenant>{
+public interface TenantService extends AbstractService<Tenant>{
     
 }
