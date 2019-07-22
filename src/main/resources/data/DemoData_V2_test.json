@@ -1,212 +1,204 @@
 {
-    "id": 25686158,
-    "type": "Include",
+  "id": 25686158,
+  "type": "Include",
+  "version": {
+    "name": "DemoDataV2"
+  },
+  "reference33": {
+    "id": 25686018,
+    "type": "Node",
     "version": {
-        "name": "DemoData"
+      "flavor": "VANILLA",
+      "name": "DemoData",
+      "identityKey": null,
+      "identityValue": null
     },
-    "reference": {
-        "id": 25686018,
+    "nodes": [
+      {
+        "id": 25686020,
         "type": "Node",
         "version": {
-            "flavor": "VANILLA",
-            "name": "DemoData",
-            "identityKey": null,
-            "identityValue": null
+          "flavor": "VANILLA",
+          "name": "DemoNode1",
+          "identityKey": null,
+          "identityValue": null
         },
         "nodes": [
-            {
-                "id": 25686020,
-                "type": "Node",
+          {
+            "id": 25686035,
+            "type": "Node",
+            "version": {
+              "flavor": "VANILLA",
+              "name": "AWS",
+              "identityKey": null,
+              "identityValue": null
+            },
+            "metadata": [
+              {
+                "id": 25686056,
+                "type": "Metadata",
                 "version": {
-                    "flavor": "VANILLA",
-                    "name": "DemoNode1",
-                    "identityKey": null,
-                    "identityValue": null
-                },
-                "nodes": [
-                    {
-                        "id": 25686035,
-                        "type": "Node",
-                        "version": {
-                            "flavor": "VANILLA",
-                            "name": "AWS",
-                            "identityKey": null,
-                            "identityValue": null
-                        },
-                        "metadata": [
-                            {
-                                "id": 25686056,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686057,
-                                    "key": "ip",
-                                    "value": "10.0.0.9",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            },
-                            {
-                                "id": 25686062,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686063,
-                                    "key": "password",
-                                    "value": "aswpass",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            },
-                            {
-                                "id": 25686059,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686060,
-                                    "key": "username",
-                                    "value": "awsadmin",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": 25686029,
-                        "type": "Node",
-                        "version": {
-                            "flavor": "VANILLA",
-                            "name": "MongoDB",
-                            "identityKey": null,
-                            "identityValue": null
-                        },
-                        "metadata": [
-                            {
-                                "id": 25686065,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686066,
-                                    "key": "ip",
-                                    "value": "10.0.0.10",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            },
-                            {
-                                "id": 25686071,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686072,
-                                    "key": "password",
-                                    "value": "mongoPass",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            },
-                            {
-                                "id": 25686068,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686069,
-                                    "key": "username",
-                                    "value": "mongoAdmin",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": 25686032,
-                        "type": "Node",
-                        "version": {
-                            "flavor": "VANILLA",
-                            "name": "Node",
-                            "identityKey": null,
-                            "identityValue": null
-                        },
-                        "metadata": [
-                            {
-                                "id": 25686074,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686075,
-                                    "key": "ip",
-                                    "value": "10.0.0.11",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            },
-                            {
-                                "id": 25686082,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686083,
-                                    "key": "password",
-                                    "value": "nodePass",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            },
-                            {
-                                "id": 25686079,
-                                "type": "Metadata",
-                                "version": {
-                                    "id": 25686080,
-                                    "key": "username",
-                                    "value": "nodeUser",
-                                    "isSensitive": false,
-                                    "tags": [
-
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "metadata": [
-                    {
-                        "id": 25686142,
-                        "type": "Metadata",
-                        "version": {
-                            "id": 25686143,
-                            "key": "location",
-                            "value": "Paris",
-                            "isSensitive": false,
-                            "tags": [
-
-                            ]
-                        }
-                    },
-                    {
-                        "id": 25686139,
-                        "type": "Metadata",
-                        "version": {
-                            "id": 25686140,
-                            "key": "severity",
-                            "value": "high",
-                            "isSensitive": false,
-                            "tags": [
-
-                            ]
-                        }
-                    }
-                ]
+                  "id": 25686057,
+                  "key": "ip",
+                  "value": "10.0.0.9",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              },
+              {
+                "id": 25686062,
+                "type": "Metadata",
+                "version": {
+                  "id": 25686063,
+                  "key": "password",
+                  "value": "aswpass",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              },
+              {
+                "id": 25686059,
+                "type": "Metadata",
+                "version": {
+                  "id": 25686060,
+                  "key": "username",
+                  "value": "awsadmin",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": 25686029,
+            "type": "Node",
+            "version": {
+              "flavor": "VANILLA",
+              "name": "MongoDB",
+              "identityKey": null,
+              "identityValue": null
+            },
+            "metadata": [
+              {
+                "id": 25686065,
+                "type": "Metadata",
+                "version": {
+                  "id": 25686066,
+                  "key": "ip",
+                  "value": "10.0.0.10",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              },
+              {
+                "id": 25686071,
+                "type": "Metadata",
+                "version": {
+                  "id": 25686072,
+                  "key": "password",
+                  "value": "mongoPass",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              },
+              {
+                "id": 25686068,
+                "type": "Metadata",
+                "version": {
+                  "id": 25686069,
+                  "key": "username",
+                  "value": "mongoAdmin",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": 25686032,
+            "type": "Node",
+            "version": {
+              "flavor": "VANILLA",
+              "name": "Node",
+              "identityKey": null,
+              "identityValue": null
+            },
+            "metadata": [
+              {
+                "id": 25686074,
+                "type": "Metadata",
+                "version": {
+                  "id": 25686075,
+                  "key": "ip",
+                  "value": "10.0.0.11",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              },
+              {
+                "id": 25686082,
+                "type": "Metadata",
+                "version": {
+                  "id": 25686083,
+                  "key": "password",
+                  "value": "nodePass",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              },
+              {
+                "id": 25686079,
+                "type": "Metadata",
+                "version": {
+                  "id": 25686080,
+                  "key": "username",
+                  "value": "nodeUser",
+                  "isSensitive": false,
+                  "tags": [
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "metadata": [
+          {
+            "id": 25686142,
+            "type": "Metadata",
+            "version": {
+              "id": 25686143,
+              "key": "location",
+              "value": "Paris",
+              "isSensitive": false,
+              "tags": [
+              ]
             }
+          },
+          {
+            "id": 25686139,
+            "type": "Metadata",
+            "version": {
+              "id": 25686140,
+              "key": "severity",
+              "value": "high",
+              "isSensitive": false,
+              "tags": [
+              ]
+            }
+          }
         ]
-    }
+      }
+    ]
+  },
+  "node": {
+    "yolo": 22
+  }
 }
